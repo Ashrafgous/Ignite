@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 //Base URL
 
 const base_url = "https://api.rawg.io/api/";
@@ -32,7 +32,6 @@ const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 const popular_games = `games?key=${process.env.IGNITE_API_KEY}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
 
- const popularGamesURL = () => {
+export const popularGamesURL = () => {
   return `${base_url}${popular_games}`;
 };
-console.log(popularGamesURL());
