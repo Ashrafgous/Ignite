@@ -7,9 +7,15 @@ import Game from "../components/Game";
 // Styling and animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import {useLocation} from "react-router-dom";
 import GameDetail from "../components/GameDetail";
 
+
 const Home = () => {
+  //get the current location
+
+  const Location = useLocation();
+  const pathId = Location.pathname.split("/")[2];
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadGames());
@@ -18,9 +24,8 @@ const Home = () => {
   const { popular, newGames, upcoming } = useSelector((state) => state.games);
 
   return (
-   
     <GameList>
-   <GameDetail/>
+      {pathId && <GameDetail/>}
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
@@ -62,18 +67,16 @@ const Home = () => {
 };
 
 const GameList = styled(motion.div)`
- padding: 0rem 5rem;
- h2{
+  padding: 0rem 5rem;
+  h2 {
     padding: 5rem 0rem;
- }
-
+  }
 `;
 const Games = styled(motion.div)`
-min-height: 80vh;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-grid-column-gap: 3rem;
-grid-row-gap: 5rem;
-
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-column-gap: 3rem;
+  grid-row-gap: 5rem;
 `;
 export default Home;

@@ -20,7 +20,7 @@ function GameDetail() {
           <Info>
             <h3>Platforms</h3>
             <Platforms>
-              {game.platform.map((data) => (
+              {game.platforms?.map((data) => (
                 <h3 key={data.platform.id}>{data.platform.name}</h3>
               ))}
             </Platforms>
@@ -32,12 +32,13 @@ function GameDetail() {
         <Description>
           <p>{game.description_raw}</p>
         </Description>
-      </Detail>
-      <div className="gallery">
+        <div className="gallery">
         {screen.results.map((screen) => (
           <img src={screen.image} alt="" key={screen.id} />
         ))}
       </div>
+      </Detail>
+    
     </CardShadow>
   );
 }
