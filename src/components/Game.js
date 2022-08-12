@@ -9,6 +9,7 @@ import { smallImage } from "../util";
 
 const Game = ({ name, released, image, id }) => {
   //Load Detail Handler
+  const StringPathId = id.toString();
 
   const dispatch = useDispatch();
   const loadDetailHandler = () => {
@@ -16,7 +17,7 @@ const Game = ({ name, released, image, id }) => {
     dispatch(loadDetail(id));
   };
   return (
-    <StyledGame onClick={loadDetailHandler}>
+    <StyledGame layoutId={StringPathId} onClick={loadDetailHandler}>
       <Link to={`/games/${id}`}>
         <h3>{name}</h3>
         <p>{released}</p>
