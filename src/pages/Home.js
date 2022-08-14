@@ -10,6 +10,7 @@ import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import GameDetail from "../components/GameDetail";
 
+
 const Home = () => {
   //get the current location
 

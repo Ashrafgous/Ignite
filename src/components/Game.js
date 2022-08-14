@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { loadDetail } from "../actions/detailAction";
 import { Link } from "react-router-dom";
 import { smallImage } from "../util";
-
 const Game = ({ name, released, image, id }) => {
   //Load Detail Handler
   const StringPathId = id.toString();
@@ -17,7 +16,7 @@ const Game = ({ name, released, image, id }) => {
     dispatch(loadDetail(id));
   };
   return (
-    <StyledGame layoutId={StringPathId} onClick={loadDetailHandler}>
+    <StyledGame  layoutId={StringPathId} onClick={loadDetailHandler}>
       <Link to={`/games/${id}`}>
         <h3>{name}</h3>
         <p>{released}</p>
